@@ -1,0 +1,237 @@
+/* src/styles/globals.css */
+
+/*
+ * Google Fonts import — lives at the very top because CSS spec requires
+ * @import url() before any other rule. Next.js apps use `next/font` and
+ * effectively ignore this line (since they don't import this file directly
+ * for font delivery — they import it for tokens/utilities). Month End and
+ * other static HTML consumers of dist/glass.css rely on it.
+ */
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Serif+Display&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+/* ===== Design tokens (CSS custom properties) ===== */
+@theme inline {
+  /* Brand */
+  --color-brand: #6874b4;
+  --color-brand-strong: #4f5aa3;
+  --color-brand-light: #e8eaf5;
+
+  /* Semantic */
+  --color-teal-strong: #0f766e;
+  --color-teal-light: #d1faf4;
+  --color-coral: #b8456b;
+  --color-coral-light: #fce1ea;
+  --color-amber-mid: #c69b2d;
+  --color-amber-light: #fdf2d2;
+
+  /* Neutrals */
+  --color-ink: #0f1223;
+  --color-muted: #5a607a;
+  --color-faint: #9aa0bf;
+  --color-line: #e4e6f0;
+
+  /* Surfaces */
+  --color-bg: #f0f1f8;
+
+  /* Typography */
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-serif: "DM Serif Display", serif;
+  --font-num: "Plus Jakarta Sans", system-ui, sans-serif;
+
+  /* Radius */
+  --radius: 20px;
+  --radius-sm: 12px;
+  --radius-lg: 28px;
+}
+
+:root {
+  /* Short aliases for non-Tailwind consumers (Month End's inline CSS). */
+  --sg-brand: var(--color-brand);
+  --sg-brand-strong: var(--color-brand-strong);
+  --sg-ink: var(--color-ink);
+  --sg-muted: var(--color-muted);
+  --sg-card-bg: rgba(255, 255, 255, 0.78);
+  --sg-card-border: rgba(255, 255, 255, 0.65);
+  --sg-radius: var(--radius);
+  --sg-shadow-glass:
+    0 2px 4px rgba(15, 18, 35, 0.04),
+    0 12px 32px rgba(15, 18, 35, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.55);
+}
+
+/* ===== Body + base ===== */
+body {
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  font-feature-settings: "cv11", "ss01";
+}
+
+/* ===== Glass utility ===== */
+.card-glass {
+  background: var(--sg-card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--sg-card-border);
+  border-radius: var(--sg-radius);
+  box-shadow: var(--sg-shadow-glass);
+}
+
+/* ===== Numbers ===== */
+.num {
+  font-feature-settings: "tnum" 1;
+  font-variant-numeric: tabular-nums;
+  font-family: var(--font-num);
+}
+.serif-num {
+  font-family: var(--font-serif);
+  font-feature-settings: "tnum" 1;
+}
+
+/* ===== Ambient background pieces ===== */
+.sg-ambient-gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 50% at 20% 10%, rgba(104, 116, 180, 0.18), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 85% 80%, rgba(184, 69, 107, 0.10), transparent 60%),
+    radial-gradient(ellipse 40% 35% at 50% 50%, rgba(198, 155, 45, 0.08), transparent 60%);
+}
+
+.sg-ambient-orb {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(80px);
+  opacity: 0.35;
+  animation: sg-orb-drift 20s ease-in-out infinite;
+}
+.sg-ambient-orb-1 {
+  top: -10%; left: -5%;
+  width: 40vw; height: 40vw;
+  background: radial-gradient(circle, var(--color-brand) 0%, transparent 70%);
+}
+.sg-ambient-orb-2 {
+  bottom: -15%; right: -10%;
+  width: 50vw; height: 50vw;
+  background: radial-gradient(circle, var(--color-coral) 0%, transparent 70%);
+  animation-delay: -7s;
+}
+.sg-ambient-orb-3 {
+  top: 30%; left: 40%;
+  width: 30vw; height: 30vw;
+  background: radial-gradient(circle, var(--color-amber-mid) 0%, transparent 70%);
+  animation-delay: -14s;
+  opacity: 0.2;
+}
+
+.sg-ambient-grain {
+  position: absolute;
+  inset: 0;
+  opacity: 0.03;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+}
+
+/* ===== Loading screen pieces ===== */
+.sg-loading-card {
+  display: flex; flex-direction: column; align-items: center; gap: 1rem;
+  padding: 2rem 3rem;
+  background: var(--sg-card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--sg-card-border);
+  border-radius: var(--sg-radius);
+  box-shadow: var(--sg-shadow-glass);
+}
+.sg-loading-spinner {
+  width: 2.5rem; height: 2.5rem;
+  border: 3px solid rgba(104, 116, 180, 0.2);
+  border-top-color: var(--color-brand);
+  border-radius: 9999px;
+  animation: sg-spin 0.8s linear infinite;
+}
+.sg-loading-label {
+  color: var(--color-muted);
+  font-size: 0.875rem;
+}
+
+/* ===== App header pieces ===== */
+.sg-app-header { position: sticky; top: 0; z-index: 40; background: rgba(240, 241, 248, 0.72); backdrop-filter: blur(16px); border-bottom: 1px solid var(--color-line); }
+.sg-app-header-name { font-weight: 600; color: var(--color-ink); }
+.sg-app-header-avatar {
+  width: 2.25rem; height: 2.25rem;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, var(--color-brand) 0%, var(--color-brand-strong) 100%);
+  color: white;
+  font-weight: 600; font-size: 0.875rem;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid white;
+  box-shadow: 0 1px 3px rgba(15, 18, 35, 0.08);
+  transition: transform 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.sg-app-header-avatar:active { transform: scale(0.93); }
+
+/* ===== Login shell pieces ===== */
+.sg-login-main {
+  min-height: 100vh;
+  display: flex; align-items: center; justify-content: center;
+  padding: 2rem;
+}
+.sg-login-card {
+  position: relative;
+  padding: 2px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.sg-login-spinning-border::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background: conic-gradient(from 0deg, transparent 0%, var(--color-brand) 50%, transparent 100%);
+  animation: sg-spin 4s linear infinite;
+}
+.sg-login-card-inner {
+  position: relative;
+  background: var(--sg-card-bg);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid var(--sg-card-border);
+  border-radius: calc(var(--radius-lg) - 2px);
+  box-shadow: var(--sg-shadow-glass);
+  padding: 3rem 2.5rem;
+  max-width: 28rem;
+  width: 100%;
+}
+.sg-login-title {
+  font-family: var(--font-serif);
+  font-size: 2.25rem;
+  text-align: center;
+  color: var(--color-ink);
+  margin: 0;
+}
+.sg-login-tagline {
+  text-align: center;
+  color: var(--color-muted);
+  margin: 0.5rem 0 0;
+}
+
+/* ===== Animations ===== */
+@keyframes sg-spin { to { transform: rotate(360deg); } }
+@keyframes sg-orb-drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(30px, -20px) scale(1.05); }
+  66% { transform: translate(-20px, 30px) scale(0.95); }
+}
+@keyframes sg-fade-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.fade-up { animation: sg-fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) both; }
+.fade-up-1 { animation-delay: 0.05s; }
+.fade-up-2 { animation-delay: 0.1s; }
+.fade-up-3 { animation-delay: 0.15s; }
+.fade-up-4 { animation-delay: 0.2s; }
+.fade-up-5 { animation-delay: 0.25s; }
