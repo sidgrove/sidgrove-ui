@@ -1257,31 +1257,42 @@ function LoginShell({ appName, tagline, logo, children, className }) {
 var T = {
   // Brand
   brand: "#6874b4",
-  brandStrong: "#4f5aa3",
-  brandLight: "#e8eaf5",
-  // Semantic
+  brandLight: "#eef0fa",
+  brandMid: "#a8b0d8",
+  brandStrong: "#3d4785",
+  // Coral (negatives / outflows)
+  coral: "#b8456b",
+  coralLight: "#fdf2f6",
+  coralMid: "#e0a3b8",
+  // Amber (warnings / flags)
+  amber: "#c69b2d",
+  amberMid: "#c69b2d",
+  amberDark: "#7a5e1e",
+  amberLight: "#fdf9ee",
+  // Teal (positives / inflows — legacy)
   tealStrong: "#0f766e",
   tealLight: "#d1faf4",
-  coral: "#b8456b",
-  coralLight: "#fce1ea",
-  amberMid: "#c69b2d",
-  amberLight: "#fdf2d2",
-  // Neutrals (cool-slate with blue undertone)
-  ink: "#0f1223",
-  muted: "#5a607a",
-  faint: "#9aa0bf",
-  line: "#e4e6f0",
+  // Neutrals
+  ink: "#1a1d2e",
+  muted: "#525672",
+  faint: "#8b8fa6",
+  line: "#dfe1ee",
   // Surfaces
   bg: "#f0f1f8",
-  cardBg: "rgba(255, 255, 255, 0.78)",
+  surface: "#f6f7fc",
+  wash: "#f0f1f8",
+  cardBg: "rgba(255, 255, 255, 0.72)",
+  cardStrong: "rgba(255, 255, 255, 0.85)",
   cardBorder: "rgba(255, 255, 255, 0.65)",
   // Radius
   radius: "20px",
   radiusSm: "12px",
   radiusLg: "28px",
-  // Shadows (multi-layer, diffuse)
-  shadowSoft: "0 1px 2px rgba(15, 18, 35, 0.04), 0 4px 12px rgba(15, 18, 35, 0.04), inset 0 1px 0 rgba(255, 255, 255, 0.5)",
-  shadowGlass: "0 2px 4px rgba(15, 18, 35, 0.04), 0 12px 32px rgba(15, 18, 35, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.55)"
+  // Shadows (Cashflow's layered system)
+  shadowSurface: "0 2px 4px 0 rgba(0,0,0,0.04), 0 1px 2px 0 rgba(0,0,0,0.06), 0 0 1px 0 rgba(0,0,0,0.04)",
+  shadowSoft: "0 1px 3px rgba(0,0,0,0.03), 0 4px 16px rgba(104,116,180,0.04), 0 12px 32px rgba(104,116,180,0.03)",
+  shadowLift: "0 2px 8px rgba(104,116,180,0.06), 0 8px 24px rgba(104,116,180,0.08), 0 20px 48px rgba(50,50,110,0.06)",
+  shadowGlass: "0 2px 4px rgba(26, 29, 46, 0.04), 0 12px 32px rgba(26, 29, 46, 0.06), inset 0 1px 0 rgba(255, 255, 255, 0.55)"
 };
 var cssVars = {
   brand: "var(--sg-brand)",

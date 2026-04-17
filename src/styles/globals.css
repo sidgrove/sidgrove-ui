@@ -11,34 +11,49 @@
 
 @import "tailwindcss";
 
-/* ===== Design tokens (CSS custom properties) ===== */
+/* ===== Design tokens (CSS custom properties) =====
+ * Values reconciled to match Cashflow Intelligence Dash — the canonical
+ * aesthetic reference (alongside PRICC Dashboard). Do not "improve" these
+ * away from Cashflow's values; doing so drifts the kit away from the
+ * reference rather than toward it.
+ */
 @theme inline {
   /* Brand */
   --color-brand: #6874b4;
-  --color-brand-strong: #4f5aa3;
-  --color-brand-light: #e8eaf5;
+  --color-brand-light: #eef0fa;
+  --color-brand-mid: #a8b0d8;
+  --color-brand-strong: #3d4785;
 
-  /* Semantic */
+  /* Coral (negatives / outflows) */
+  --color-coral: #b8456b;
+  --color-coral-light: #fdf2f6;
+  --color-coral-mid: #e0a3b8;
+
+  /* Amber (warnings / flags) */
+  --color-amber: #c69b2d;
+  --color-amber-mid: #c69b2d;       /* alias retained for kit consumers */
+  --color-amber-dark: #7a5e1e;
+  --color-amber-light: #fdf9ee;
+
+  /* Teal (positives / inflows — legacy, retained) */
   --color-teal-strong: #0f766e;
   --color-teal-light: #d1faf4;
-  --color-coral: #b8456b;
-  --color-coral-light: #fce1ea;
-  --color-amber-mid: #c69b2d;
-  --color-amber-light: #fdf2d2;
 
   /* Neutrals */
-  --color-ink: #0f1223;
-  --color-muted: #5a607a;
-  --color-faint: #9aa0bf;
-  --color-line: #e4e6f0;
+  --color-ink: #1a1d2e;
+  --color-muted: #525672;
+  --color-faint: #8b8fa6;
+  --color-line: #dfe1ee;
 
   /* Surfaces */
   --color-bg: #f0f1f8;
+  --color-surface: #f6f7fc;
+  --color-wash: #f0f1f8;
 
   /* Typography */
   --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
   --font-serif: "DM Serif Display", serif;
-  --font-num: "Plus Jakarta Sans", system-ui, sans-serif;
+  --font-num: "Plus Jakarta Sans", "DM Sans", system-ui, sans-serif;
 
   /* Radius */
   --radius: 20px;
@@ -47,18 +62,54 @@
 }
 
 :root {
-  /* Short aliases for non-Tailwind consumers (Month End's inline CSS). */
+  /* Raw colour tokens duplicated here so non-Tailwind consumers
+   * (Month End, other static HTML) get the full palette in dist/glass.css.
+   * Tailwind v4 tree-shakes unused @theme tokens from output, so duplicating
+   * them in :root guarantees they ship regardless of utility usage.
+   */
+  --color-brand: #6874b4;
+  --color-brand-light: #eef0fa;
+  --color-brand-mid: #a8b0d8;
+  --color-brand-strong: #3d4785;
+  --color-coral: #b8456b;
+  --color-coral-light: #fdf2f6;
+  --color-coral-mid: #e0a3b8;
+  --color-amber: #c69b2d;
+  --color-amber-mid: #c69b2d;
+  --color-amber-dark: #7a5e1e;
+  --color-amber-light: #fdf9ee;
+  --color-teal-strong: #0f766e;
+  --color-teal-light: #d1faf4;
+  --color-ink: #1a1d2e;
+  --color-muted: #525672;
+  --color-faint: #8b8fa6;
+  --color-line: #dfe1ee;
+  --color-bg: #f0f1f8;
+  --color-surface: #f6f7fc;
+  --color-wash: #f0f1f8;
+
+  /* Short sg-* aliases for legacy/external use */
   --sg-brand: var(--color-brand);
   --sg-brand-strong: var(--color-brand-strong);
   --sg-ink: var(--color-ink);
   --sg-muted: var(--color-muted);
-  --sg-card-bg: rgba(255, 255, 255, 0.78);
+  --sg-card-bg: rgba(255, 255, 255, 0.72);
+  --sg-card-strong: rgba(255, 255, 255, 0.85);
   --sg-card-border: rgba(255, 255, 255, 0.65);
   --sg-radius: var(--radius);
+
+  /* Cashflow's layered shadow system — subtle, premium, brand-tinted */
+  --sg-shadow-surface: 0 2px 4px 0 rgba(0,0,0,0.04), 0 1px 2px 0 rgba(0,0,0,0.06), 0 0 1px 0 rgba(0,0,0,0.04);
+  --sg-shadow-soft: 0 1px 3px rgba(0,0,0,0.03), 0 4px 16px rgba(104,116,180,0.04), 0 12px 32px rgba(104,116,180,0.03);
+  --sg-shadow-lift: 0 2px 8px rgba(104,116,180,0.06), 0 8px 24px rgba(104,116,180,0.08), 0 20px 48px rgba(50,50,110,0.06);
   --sg-shadow-glass:
-    0 2px 4px rgba(15, 18, 35, 0.04),
-    0 12px 32px rgba(15, 18, 35, 0.06),
+    0 2px 4px rgba(26, 29, 46, 0.04),
+    0 12px 32px rgba(26, 29, 46, 0.06),
     inset 0 1px 0 rgba(255, 255, 255, 0.55);
+
+  /* Glass tuning */
+  --sg-glass-blur: 20px;
+  --sg-glass-saturate: 180%;
 }
 
 /* ===== Body + base ===== */
