@@ -1,9 +1,7 @@
 "use strict";
-var __create = Object.create;
 var __defProp = Object.defineProperty;
 var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
-var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
 var __export = (target, all) => {
   for (var name in all)
@@ -17,14 +15,6 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
-var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
-  // If the importer is in node compatibility mode or this is not an ESM
-  // file that has been converted to a CommonJS file using a Babel-
-  // compatible transform (i.e. "__esModule" has not been set), then set
-  // "default" to the CommonJS "module.exports" for node compatibility.
-  isNodeMode || !mod || !mod.__esModule ? __defProp(target, "default", { value: mod, enumerable: true }) : target,
-  mod
-));
 var __toCommonJS = (mod) => __copyProps(__defProp({}, "__esModule", { value: true }), mod);
 
 // src/index.ts
@@ -110,7 +100,6 @@ __export(index_exports, {
 module.exports = __toCommonJS(index_exports);
 
 // src/components/ui/alert.tsx
-var React2 = __toESM(require("react"), 1);
 var import_class_variance_authority = require("class-variance-authority");
 
 // src/lib/utils.ts
@@ -121,6 +110,7 @@ function cn(...inputs) {
 }
 
 // src/components/ui/alert.tsx
+var import_jsx_runtime = require("react/jsx-runtime");
 var alertVariants = (0, import_class_variance_authority.cva)(
   "group/alert relative grid w-full gap-0.5 rounded-lg border px-2.5 py-2 text-left text-sm has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pr-18 has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-2 *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current *:[svg:not([class*='size-'])]:size-4",
   {
@@ -140,7 +130,7 @@ function Alert({
   variant,
   ...props
 }) {
-  return /* @__PURE__ */ React2.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
     "div",
     {
       "data-slot": "alert",
@@ -151,7 +141,7 @@ function Alert({
   );
 }
 function AlertTitle({ className, ...props }) {
-  return /* @__PURE__ */ React2.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
     "div",
     {
       "data-slot": "alert-title",
@@ -167,7 +157,7 @@ function AlertDescription({
   className,
   ...props
 }) {
-  return /* @__PURE__ */ React2.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
     "div",
     {
       "data-slot": "alert-description",
@@ -180,7 +170,7 @@ function AlertDescription({
   );
 }
 function AlertAction({ className, ...props }) {
-  return /* @__PURE__ */ React2.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
     "div",
     {
       "data-slot": "alert-action",
@@ -237,6 +227,7 @@ function Badge({
 // src/components/ui/button.tsx
 var import_button = require("@base-ui/react/button");
 var import_class_variance_authority3 = require("class-variance-authority");
+var import_jsx_runtime2 = require("react/jsx-runtime");
 var buttonVariants = (0, import_class_variance_authority3.cva)(
   "group/button inline-flex shrink-0 items-center justify-center rounded-lg border border-transparent bg-clip-padding text-sm font-medium whitespace-nowrap transition-all outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 active:not-aria-[haspopup]:translate-y-px disabled:pointer-events-none disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
   {
@@ -272,7 +263,7 @@ function Button({
   size = "default",
   ...props
 }) {
-  return /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime2.jsx)(
     import_button.Button,
     {
       "data-slot": "button",
@@ -283,13 +274,13 @@ function Button({
 }
 
 // src/components/ui/card.tsx
-var React3 = __toESM(require("react"), 1);
+var import_jsx_runtime3 = require("react/jsx-runtime");
 function Card({
   className,
   size = "default",
   ...props
 }) {
-  return /* @__PURE__ */ React3.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
     "div",
     {
       "data-slot": "card",
@@ -303,7 +294,7 @@ function Card({
   );
 }
 function CardHeader({ className, ...props }) {
-  return /* @__PURE__ */ React3.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
     "div",
     {
       "data-slot": "card-header",
@@ -316,7 +307,7 @@ function CardHeader({ className, ...props }) {
   );
 }
 function CardTitle({ className, ...props }) {
-  return /* @__PURE__ */ React3.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
     "div",
     {
       "data-slot": "card-title",
@@ -329,7 +320,7 @@ function CardTitle({ className, ...props }) {
   );
 }
 function CardDescription({ className, ...props }) {
-  return /* @__PURE__ */ React3.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
     "div",
     {
       "data-slot": "card-description",
@@ -339,7 +330,7 @@ function CardDescription({ className, ...props }) {
   );
 }
 function CardAction({ className, ...props }) {
-  return /* @__PURE__ */ React3.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
     "div",
     {
       "data-slot": "card-action",
@@ -352,7 +343,7 @@ function CardAction({ className, ...props }) {
   );
 }
 function CardContent({ className, ...props }) {
-  return /* @__PURE__ */ React3.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
     "div",
     {
       "data-slot": "card-content",
@@ -362,7 +353,7 @@ function CardContent({ className, ...props }) {
   );
 }
 function CardFooter({ className, ...props }) {
-  return /* @__PURE__ */ React3.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
     "div",
     {
       "data-slot": "card-footer",
@@ -376,26 +367,26 @@ function CardFooter({ className, ...props }) {
 }
 
 // src/components/ui/dialog.tsx
-var React4 = __toESM(require("react"), 1);
 var import_dialog = require("@base-ui/react/dialog");
 var import_lucide_react = require("lucide-react");
+var import_jsx_runtime4 = require("react/jsx-runtime");
 function Dialog({ ...props }) {
-  return /* @__PURE__ */ React4.createElement(import_dialog.Dialog.Root, { "data-slot": "dialog", ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_dialog.Dialog.Root, { "data-slot": "dialog", ...props });
 }
 function DialogTrigger({ ...props }) {
-  return /* @__PURE__ */ React4.createElement(import_dialog.Dialog.Trigger, { "data-slot": "dialog-trigger", ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_dialog.Dialog.Trigger, { "data-slot": "dialog-trigger", ...props });
 }
 function DialogPortal({ ...props }) {
-  return /* @__PURE__ */ React4.createElement(import_dialog.Dialog.Portal, { "data-slot": "dialog-portal", ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_dialog.Dialog.Portal, { "data-slot": "dialog-portal", ...props });
 }
 function DialogClose({ ...props }) {
-  return /* @__PURE__ */ React4.createElement(import_dialog.Dialog.Close, { "data-slot": "dialog-close", ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_dialog.Dialog.Close, { "data-slot": "dialog-close", ...props });
 }
 function DialogOverlay({
   className,
   ...props
 }) {
-  return /* @__PURE__ */ React4.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
     import_dialog.Dialog.Backdrop,
     {
       "data-slot": "dialog-overlay",
@@ -413,40 +404,47 @@ function DialogContent({
   showCloseButton = true,
   ...props
 }) {
-  return /* @__PURE__ */ React4.createElement(DialogPortal, null, /* @__PURE__ */ React4.createElement(DialogOverlay, null), /* @__PURE__ */ React4.createElement(
-    import_dialog.Dialog.Popup,
-    {
-      "data-slot": "dialog-content",
-      className: cn(
-        "fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-popover p-4 text-sm text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none sm:max-w-sm data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
-        className
-      ),
-      ...props
-    },
-    children,
-    showCloseButton && /* @__PURE__ */ React4.createElement(
-      import_dialog.Dialog.Close,
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(DialogPortal, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(DialogOverlay, {}),
+    /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+      import_dialog.Dialog.Popup,
       {
-        "data-slot": "dialog-close",
-        render: /* @__PURE__ */ React4.createElement(
-          Button,
-          {
-            variant: "ghost",
-            className: "absolute top-2 right-2",
-            size: "icon-sm"
-          }
-        )
-      },
-      /* @__PURE__ */ React4.createElement(
-        import_lucide_react.XIcon,
-        null
-      ),
-      /* @__PURE__ */ React4.createElement("span", { className: "sr-only" }, "Close")
+        "data-slot": "dialog-content",
+        className: cn(
+          "fixed top-1/2 left-1/2 z-50 grid w-full max-w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 gap-4 rounded-xl bg-popover p-4 text-sm text-popover-foreground ring-1 ring-foreground/10 duration-100 outline-none sm:max-w-sm data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+          className
+        ),
+        ...props,
+        children: [
+          children,
+          showCloseButton && /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
+            import_dialog.Dialog.Close,
+            {
+              "data-slot": "dialog-close",
+              render: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                Button,
+                {
+                  variant: "ghost",
+                  className: "absolute top-2 right-2",
+                  size: "icon-sm"
+                }
+              ),
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+                  import_lucide_react.XIcon,
+                  {}
+                ),
+                /* @__PURE__ */ (0, import_jsx_runtime4.jsx)("span", { className: "sr-only", children: "Close" })
+              ]
+            }
+          )
+        ]
+      }
     )
-  ));
+  ] });
 }
 function DialogHeader({ className, ...props }) {
-  return /* @__PURE__ */ React4.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
     "div",
     {
       "data-slot": "dialog-header",
@@ -461,7 +459,7 @@ function DialogFooter({
   children,
   ...props
 }) {
-  return /* @__PURE__ */ React4.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(
     "div",
     {
       "data-slot": "dialog-footer",
@@ -469,14 +467,16 @@ function DialogFooter({
         "-mx-4 -mb-4 flex flex-col-reverse gap-2 rounded-b-xl border-t bg-muted/50 p-4 sm:flex-row sm:justify-end",
         className
       ),
-      ...props
-    },
-    children,
-    showCloseButton && /* @__PURE__ */ React4.createElement(import_dialog.Dialog.Close, { render: /* @__PURE__ */ React4.createElement(Button, { variant: "outline" }) }, "Close")
+      ...props,
+      children: [
+        children,
+        showCloseButton && /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(import_dialog.Dialog.Close, { render: /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Button, { variant: "outline" }), children: "Close" })
+      ]
+    }
   );
 }
 function DialogTitle({ className, ...props }) {
-  return /* @__PURE__ */ React4.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
     import_dialog.Dialog.Title,
     {
       "data-slot": "dialog-title",
@@ -492,7 +492,7 @@ function DialogDescription({
   className,
   ...props
 }) {
-  return /* @__PURE__ */ React4.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
     import_dialog.Dialog.Description,
     {
       "data-slot": "dialog-description",
@@ -506,17 +506,17 @@ function DialogDescription({
 }
 
 // src/components/ui/dropdown-menu.tsx
-var React5 = __toESM(require("react"), 1);
 var import_menu = require("@base-ui/react/menu");
 var import_lucide_react2 = require("lucide-react");
+var import_jsx_runtime5 = require("react/jsx-runtime");
 function DropdownMenu({ ...props }) {
-  return /* @__PURE__ */ React5.createElement(import_menu.Menu.Root, { "data-slot": "dropdown-menu", ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_menu.Menu.Root, { "data-slot": "dropdown-menu", ...props });
 }
 function DropdownMenuPortal({ ...props }) {
-  return /* @__PURE__ */ React5.createElement(import_menu.Menu.Portal, { "data-slot": "dropdown-menu-portal", ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_menu.Menu.Portal, { "data-slot": "dropdown-menu-portal", ...props });
 }
 function DropdownMenuTrigger({ ...props }) {
-  return /* @__PURE__ */ React5.createElement(import_menu.Menu.Trigger, { "data-slot": "dropdown-menu-trigger", ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_menu.Menu.Trigger, { "data-slot": "dropdown-menu-trigger", ...props });
 }
 function DropdownMenuContent({
   align = "start",
@@ -526,34 +526,34 @@ function DropdownMenuContent({
   className,
   ...props
 }) {
-  return /* @__PURE__ */ React5.createElement(import_menu.Menu.Portal, null, /* @__PURE__ */ React5.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_menu.Menu.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
     import_menu.Menu.Positioner,
     {
       className: "isolate z-50 outline-none",
       align,
       alignOffset,
       side,
-      sideOffset
-    },
-    /* @__PURE__ */ React5.createElement(
-      import_menu.Menu.Popup,
-      {
-        "data-slot": "dropdown-menu-content",
-        className: cn("z-50 max-h-(--available-height) w-(--anchor-width) min-w-32 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 outline-none data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:overflow-hidden data-closed:fade-out-0 data-closed:zoom-out-95", className),
-        ...props
-      }
-    )
-  ));
+      sideOffset,
+      children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+        import_menu.Menu.Popup,
+        {
+          "data-slot": "dropdown-menu-content",
+          className: cn("z-50 max-h-(--available-height) w-(--anchor-width) min-w-32 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg bg-popover p-1 text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 outline-none data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:overflow-hidden data-closed:fade-out-0 data-closed:zoom-out-95", className),
+          ...props
+        }
+      )
+    }
+  ) });
 }
 function DropdownMenuGroup({ ...props }) {
-  return /* @__PURE__ */ React5.createElement(import_menu.Menu.Group, { "data-slot": "dropdown-menu-group", ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_menu.Menu.Group, { "data-slot": "dropdown-menu-group", ...props });
 }
 function DropdownMenuLabel({
   className,
   inset,
   ...props
 }) {
-  return /* @__PURE__ */ React5.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
     import_menu.Menu.GroupLabel,
     {
       "data-slot": "dropdown-menu-label",
@@ -572,7 +572,7 @@ function DropdownMenuItem({
   variant = "default",
   ...props
 }) {
-  return /* @__PURE__ */ React5.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
     import_menu.Menu.Item,
     {
       "data-slot": "dropdown-menu-item",
@@ -587,7 +587,7 @@ function DropdownMenuItem({
   );
 }
 function DropdownMenuSub({ ...props }) {
-  return /* @__PURE__ */ React5.createElement(import_menu.Menu.SubmenuRoot, { "data-slot": "dropdown-menu-sub", ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_menu.Menu.SubmenuRoot, { "data-slot": "dropdown-menu-sub", ...props });
 }
 function DropdownMenuSubTrigger({
   className,
@@ -595,7 +595,7 @@ function DropdownMenuSubTrigger({
   children,
   ...props
 }) {
-  return /* @__PURE__ */ React5.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
     import_menu.Menu.SubmenuTrigger,
     {
       "data-slot": "dropdown-menu-sub-trigger",
@@ -604,10 +604,12 @@ function DropdownMenuSubTrigger({
         "flex cursor-default items-center gap-1.5 rounded-md px-1.5 py-1 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground not-data-[variant=destructive]:focus:**:text-accent-foreground data-inset:pl-7 data-popup-open:bg-accent data-popup-open:text-accent-foreground data-open:bg-accent data-open:text-accent-foreground [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       ),
-      ...props
-    },
-    children,
-    /* @__PURE__ */ React5.createElement(import_lucide_react2.ChevronRightIcon, { className: "ml-auto" })
+      ...props,
+      children: [
+        children,
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_lucide_react2.ChevronRightIcon, { className: "ml-auto" })
+      ]
+    }
   );
 }
 function DropdownMenuSubContent({
@@ -618,7 +620,7 @@ function DropdownMenuSubContent({
   className,
   ...props
 }) {
-  return /* @__PURE__ */ React5.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
     DropdownMenuContent,
     {
       "data-slot": "dropdown-menu-sub-content",
@@ -638,7 +640,7 @@ function DropdownMenuCheckboxItem({
   inset,
   ...props
 }) {
-  return /* @__PURE__ */ React5.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
     import_menu.Menu.CheckboxItem,
     {
       "data-slot": "dropdown-menu-checkbox-item",
@@ -648,24 +650,26 @@ function DropdownMenuCheckboxItem({
         className
       ),
       checked,
-      ...props
-    },
-    /* @__PURE__ */ React5.createElement(
-      "span",
-      {
-        className: "pointer-events-none absolute right-2 flex items-center justify-center",
-        "data-slot": "dropdown-menu-checkbox-item-indicator"
-      },
-      /* @__PURE__ */ React5.createElement(import_menu.Menu.CheckboxItemIndicator, null, /* @__PURE__ */ React5.createElement(
-        import_lucide_react2.CheckIcon,
-        null
-      ))
-    ),
-    children
+      ...props,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          "span",
+          {
+            className: "pointer-events-none absolute right-2 flex items-center justify-center",
+            "data-slot": "dropdown-menu-checkbox-item-indicator",
+            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_menu.Menu.CheckboxItemIndicator, { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+              import_lucide_react2.CheckIcon,
+              {}
+            ) })
+          }
+        ),
+        children
+      ]
+    }
   );
 }
 function DropdownMenuRadioGroup({ ...props }) {
-  return /* @__PURE__ */ React5.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
     import_menu.Menu.RadioGroup,
     {
       "data-slot": "dropdown-menu-radio-group",
@@ -679,7 +683,7 @@ function DropdownMenuRadioItem({
   inset,
   ...props
 }) {
-  return /* @__PURE__ */ React5.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
     import_menu.Menu.RadioItem,
     {
       "data-slot": "dropdown-menu-radio-item",
@@ -688,27 +692,29 @@ function DropdownMenuRadioItem({
         "relative flex cursor-default items-center gap-1.5 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground focus:**:text-accent-foreground data-inset:pl-7 data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       ),
-      ...props
-    },
-    /* @__PURE__ */ React5.createElement(
-      "span",
-      {
-        className: "pointer-events-none absolute right-2 flex items-center justify-center",
-        "data-slot": "dropdown-menu-radio-item-indicator"
-      },
-      /* @__PURE__ */ React5.createElement(import_menu.Menu.RadioItemIndicator, null, /* @__PURE__ */ React5.createElement(
-        import_lucide_react2.CheckIcon,
-        null
-      ))
-    ),
-    children
+      ...props,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          "span",
+          {
+            className: "pointer-events-none absolute right-2 flex items-center justify-center",
+            "data-slot": "dropdown-menu-radio-item-indicator",
+            children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(import_menu.Menu.RadioItemIndicator, { children: /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+              import_lucide_react2.CheckIcon,
+              {}
+            ) })
+          }
+        ),
+        children
+      ]
+    }
   );
 }
 function DropdownMenuSeparator({
   className,
   ...props
 }) {
-  return /* @__PURE__ */ React5.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
     import_menu.Menu.Separator,
     {
       "data-slot": "dropdown-menu-separator",
@@ -721,7 +727,7 @@ function DropdownMenuShortcut({
   className,
   ...props
 }) {
-  return /* @__PURE__ */ React5.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
     "span",
     {
       "data-slot": "dropdown-menu-shortcut",
@@ -735,10 +741,10 @@ function DropdownMenuShortcut({
 }
 
 // src/components/ui/input.tsx
-var React6 = __toESM(require("react"), 1);
 var import_input = require("@base-ui/react/input");
+var import_jsx_runtime6 = require("react/jsx-runtime");
 function Input({ className, type, ...props }) {
-  return /* @__PURE__ */ React6.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
     import_input.Input,
     {
       type,
@@ -753,12 +759,12 @@ function Input({ className, type, ...props }) {
 }
 
 // src/components/ui/select.tsx
-var React7 = __toESM(require("react"), 1);
 var import_select = require("@base-ui/react/select");
 var import_lucide_react3 = require("lucide-react");
+var import_jsx_runtime7 = require("react/jsx-runtime");
 var Select = import_select.Select.Root;
 function SelectGroup({ className, ...props }) {
-  return /* @__PURE__ */ React7.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
     import_select.Select.Group,
     {
       "data-slot": "select-group",
@@ -768,7 +774,7 @@ function SelectGroup({ className, ...props }) {
   );
 }
 function SelectValue({ className, ...props }) {
-  return /* @__PURE__ */ React7.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
     import_select.Select.Value,
     {
       "data-slot": "select-value",
@@ -783,7 +789,7 @@ function SelectTrigger({
   children,
   ...props
 }) {
-  return /* @__PURE__ */ React7.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
     import_select.Select.Trigger,
     {
       "data-slot": "select-trigger",
@@ -792,15 +798,17 @@ function SelectTrigger({
         "flex w-fit items-center justify-between gap-1.5 rounded-lg border border-input bg-transparent py-2 pr-2 pl-2.5 text-sm whitespace-nowrap transition-colors outline-none select-none focus-visible:border-ring focus-visible:ring-3 focus-visible:ring-ring/50 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:border-destructive aria-invalid:ring-3 aria-invalid:ring-destructive/20 data-placeholder:text-muted-foreground data-[size=default]:h-8 data-[size=sm]:h-7 data-[size=sm]:rounded-[min(var(--radius-md),10px)] *:data-[slot=select-value]:line-clamp-1 *:data-[slot=select-value]:flex *:data-[slot=select-value]:items-center *:data-[slot=select-value]:gap-1.5 dark:bg-input/30 dark:hover:bg-input/50 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
         className
       ),
-      ...props
-    },
-    children,
-    /* @__PURE__ */ React7.createElement(
-      import_select.Select.Icon,
-      {
-        render: /* @__PURE__ */ React7.createElement(import_lucide_react3.ChevronDownIcon, { className: "pointer-events-none size-4 text-muted-foreground" })
-      }
-    )
+      ...props,
+      children: [
+        children,
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+          import_select.Select.Icon,
+          {
+            render: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_lucide_react3.ChevronDownIcon, { className: "pointer-events-none size-4 text-muted-foreground" })
+          }
+        )
+      ]
+    }
   );
 }
 function SelectContent({
@@ -813,7 +821,7 @@ function SelectContent({
   alignItemWithTrigger = true,
   ...props
 }) {
-  return /* @__PURE__ */ React7.createElement(import_select.Select.Portal, null, /* @__PURE__ */ React7.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_select.Select.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
     import_select.Select.Positioner,
     {
       side,
@@ -821,27 +829,29 @@ function SelectContent({
       align,
       alignOffset,
       alignItemWithTrigger,
-      className: "isolate z-50"
-    },
-    /* @__PURE__ */ React7.createElement(
-      import_select.Select.Popup,
-      {
-        "data-slot": "select-content",
-        "data-align-trigger": alignItemWithTrigger,
-        className: cn("relative isolate z-50 max-h-(--available-height) w-(--anchor-width) min-w-36 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 data-[align-trigger=true]:animate-none data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95", className),
-        ...props
-      },
-      /* @__PURE__ */ React7.createElement(SelectScrollUpButton, null),
-      /* @__PURE__ */ React7.createElement(import_select.Select.List, null, children),
-      /* @__PURE__ */ React7.createElement(SelectScrollDownButton, null)
-    )
-  ));
+      className: "isolate z-50",
+      children: /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+        import_select.Select.Popup,
+        {
+          "data-slot": "select-content",
+          "data-align-trigger": alignItemWithTrigger,
+          className: cn("relative isolate z-50 max-h-(--available-height) w-(--anchor-width) min-w-36 origin-(--transform-origin) overflow-x-hidden overflow-y-auto rounded-lg bg-popover text-popover-foreground shadow-md ring-1 ring-foreground/10 duration-100 data-[align-trigger=true]:animate-none data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95", className),
+          ...props,
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(SelectScrollUpButton, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_select.Select.List, { children }),
+            /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(SelectScrollDownButton, {})
+          ]
+        }
+      )
+    }
+  ) });
 }
 function SelectLabel({
   className,
   ...props
 }) {
-  return /* @__PURE__ */ React7.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
     import_select.Select.GroupLabel,
     {
       "data-slot": "select-label",
@@ -855,7 +865,7 @@ function SelectItem({
   children,
   ...props
 }) {
-  return /* @__PURE__ */ React7.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
     import_select.Select.Item,
     {
       "data-slot": "select-item",
@@ -863,23 +873,25 @@ function SelectItem({
         "relative flex w-full cursor-default items-center gap-1.5 rounded-md py-1 pr-8 pl-1.5 text-sm outline-hidden select-none focus:bg-accent focus:text-accent-foreground not-data-[variant=destructive]:focus:**:text-accent-foreground data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4 *:[span]:last:flex *:[span]:last:items-center *:[span]:last:gap-2",
         className
       ),
-      ...props
-    },
-    /* @__PURE__ */ React7.createElement(import_select.Select.ItemText, { className: "flex flex-1 shrink-0 gap-2 whitespace-nowrap" }, children),
-    /* @__PURE__ */ React7.createElement(
-      import_select.Select.ItemIndicator,
-      {
-        render: /* @__PURE__ */ React7.createElement("span", { className: "pointer-events-none absolute right-2 flex size-4 items-center justify-center" })
-      },
-      /* @__PURE__ */ React7.createElement(import_lucide_react3.CheckIcon, { className: "pointer-events-none" })
-    )
+      ...props,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_select.Select.ItemText, { className: "flex flex-1 shrink-0 gap-2 whitespace-nowrap", children }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+          import_select.Select.ItemIndicator,
+          {
+            render: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("span", { className: "pointer-events-none absolute right-2 flex size-4 items-center justify-center" }),
+            children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(import_lucide_react3.CheckIcon, { className: "pointer-events-none" })
+          }
+        )
+      ]
+    }
   );
 }
 function SelectSeparator({
   className,
   ...props
 }) {
-  return /* @__PURE__ */ React7.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
     import_select.Select.Separator,
     {
       "data-slot": "select-separator",
@@ -892,7 +904,7 @@ function SelectScrollUpButton({
   className,
   ...props
 }) {
-  return /* @__PURE__ */ React7.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
     import_select.Select.ScrollUpArrow,
     {
       "data-slot": "select-scroll-up-button",
@@ -900,19 +912,19 @@ function SelectScrollUpButton({
         "top-0 z-10 flex w-full cursor-default items-center justify-center bg-popover py-1 [&_svg:not([class*='size-'])]:size-4",
         className
       ),
-      ...props
-    },
-    /* @__PURE__ */ React7.createElement(
-      import_lucide_react3.ChevronUpIcon,
-      null
-    )
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        import_lucide_react3.ChevronUpIcon,
+        {}
+      )
+    }
   );
 }
 function SelectScrollDownButton({
   className,
   ...props
 }) {
-  return /* @__PURE__ */ React7.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
     import_select.Select.ScrollDownArrow,
     {
       "data-slot": "select-scroll-down-button",
@@ -920,23 +932,24 @@ function SelectScrollDownButton({
         "bottom-0 z-10 flex w-full cursor-default items-center justify-center bg-popover py-1 [&_svg:not([class*='size-'])]:size-4",
         className
       ),
-      ...props
-    },
-    /* @__PURE__ */ React7.createElement(
-      import_lucide_react3.ChevronDownIcon,
-      null
-    )
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime7.jsx)(
+        import_lucide_react3.ChevronDownIcon,
+        {}
+      )
+    }
   );
 }
 
 // src/components/ui/separator.tsx
 var import_separator = require("@base-ui/react/separator");
+var import_jsx_runtime8 = require("react/jsx-runtime");
 function Separator({
   className,
   orientation = "horizontal",
   ...props
 }) {
-  return /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime8.jsx)(
     import_separator.Separator,
     {
       "data-slot": "separator",
@@ -951,26 +964,26 @@ function Separator({
 }
 
 // src/components/ui/table.tsx
-var React8 = __toESM(require("react"), 1);
+var import_jsx_runtime9 = require("react/jsx-runtime");
 function Table({ className, ...props }) {
-  return /* @__PURE__ */ React8.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
     "div",
     {
       "data-slot": "table-container",
-      className: "relative w-full overflow-x-auto"
-    },
-    /* @__PURE__ */ React8.createElement(
-      "table",
-      {
-        "data-slot": "table",
-        className: cn("w-full caption-bottom text-sm", className),
-        ...props
-      }
-    )
+      className: "relative w-full overflow-x-auto",
+      children: /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
+        "table",
+        {
+          "data-slot": "table",
+          className: cn("w-full caption-bottom text-sm", className),
+          ...props
+        }
+      )
+    }
   );
 }
 function TableHeader({ className, ...props }) {
-  return /* @__PURE__ */ React8.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
     "thead",
     {
       "data-slot": "table-header",
@@ -980,7 +993,7 @@ function TableHeader({ className, ...props }) {
   );
 }
 function TableBody({ className, ...props }) {
-  return /* @__PURE__ */ React8.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
     "tbody",
     {
       "data-slot": "table-body",
@@ -990,7 +1003,7 @@ function TableBody({ className, ...props }) {
   );
 }
 function TableFooter({ className, ...props }) {
-  return /* @__PURE__ */ React8.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
     "tfoot",
     {
       "data-slot": "table-footer",
@@ -1003,7 +1016,7 @@ function TableFooter({ className, ...props }) {
   );
 }
 function TableRow({ className, ...props }) {
-  return /* @__PURE__ */ React8.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
     "tr",
     {
       "data-slot": "table-row",
@@ -1016,7 +1029,7 @@ function TableRow({ className, ...props }) {
   );
 }
 function TableHead({ className, ...props }) {
-  return /* @__PURE__ */ React8.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
     "th",
     {
       "data-slot": "table-head",
@@ -1029,7 +1042,7 @@ function TableHead({ className, ...props }) {
   );
 }
 function TableCell({ className, ...props }) {
-  return /* @__PURE__ */ React8.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
     "td",
     {
       "data-slot": "table-cell",
@@ -1045,7 +1058,7 @@ function TableCaption({
   className,
   ...props
 }) {
-  return /* @__PURE__ */ React8.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime9.jsx)(
     "caption",
     {
       "data-slot": "table-caption",
@@ -1058,12 +1071,13 @@ function TableCaption({
 // src/components/ui/tabs.tsx
 var import_tabs = require("@base-ui/react/tabs");
 var import_class_variance_authority4 = require("class-variance-authority");
+var import_jsx_runtime10 = require("react/jsx-runtime");
 function Tabs({
   className,
   orientation = "horizontal",
   ...props
 }) {
-  return /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
     import_tabs.Tabs.Root,
     {
       "data-slot": "tabs",
@@ -1095,7 +1109,7 @@ function TabsList({
   variant = "default",
   ...props
 }) {
-  return /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
     import_tabs.Tabs.List,
     {
       "data-slot": "tabs-list",
@@ -1106,7 +1120,7 @@ function TabsList({
   );
 }
 function TabsTrigger({ className, ...props }) {
-  return /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
     import_tabs.Tabs.Tab,
     {
       "data-slot": "tabs-trigger",
@@ -1122,7 +1136,7 @@ function TabsTrigger({ className, ...props }) {
   );
 }
 function TabsContent({ className, ...props }) {
-  return /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
     import_tabs.Tabs.Panel,
     {
       "data-slot": "tabs-content",
@@ -1134,11 +1148,12 @@ function TabsContent({ className, ...props }) {
 
 // src/components/ui/tooltip.tsx
 var import_tooltip = require("@base-ui/react/tooltip");
+var import_jsx_runtime11 = require("react/jsx-runtime");
 function TooltipProvider({
   delay = 0,
   ...props
 }) {
-  return /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
     import_tooltip.Tooltip.Provider,
     {
       "data-slot": "tooltip-provider",
@@ -1148,10 +1163,10 @@ function TooltipProvider({
   );
 }
 function Tooltip({ ...props }) {
-  return /* @__PURE__ */ React.createElement(import_tooltip.Tooltip.Root, { "data-slot": "tooltip", ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_tooltip.Tooltip.Root, { "data-slot": "tooltip", ...props });
 }
 function TooltipTrigger({ ...props }) {
-  return /* @__PURE__ */ React.createElement(import_tooltip.Tooltip.Trigger, { "data-slot": "tooltip-trigger", ...props });
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_tooltip.Tooltip.Trigger, { "data-slot": "tooltip-trigger", ...props });
 }
 function TooltipContent({
   className,
@@ -1162,66 +1177,79 @@ function TooltipContent({
   children,
   ...props
 }) {
-  return /* @__PURE__ */ React.createElement(import_tooltip.Tooltip.Portal, null, /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_tooltip.Tooltip.Portal, { children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
     import_tooltip.Tooltip.Positioner,
     {
       align,
       alignOffset,
       side,
       sideOffset,
-      className: "isolate z-50"
-    },
-    /* @__PURE__ */ React.createElement(
-      import_tooltip.Tooltip.Popup,
-      {
-        "data-slot": "tooltip-content",
-        className: cn(
-          "z-50 inline-flex w-fit max-w-xs origin-(--transform-origin) items-center gap-1.5 rounded-md bg-foreground px-3 py-1.5 text-xs text-background has-data-[slot=kbd]:pr-1.5 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 **:data-[slot=kbd]:relative **:data-[slot=kbd]:isolate **:data-[slot=kbd]:z-50 **:data-[slot=kbd]:rounded-sm data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:zoom-in-95 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
-          className
-        ),
-        ...props
-      },
-      children,
-      /* @__PURE__ */ React.createElement(import_tooltip.Tooltip.Arrow, { className: "z-50 size-2.5 translate-y-[calc(-50%-2px)] rotate-45 rounded-[2px] bg-foreground fill-foreground data-[side=bottom]:top-1 data-[side=inline-end]:top-1/2! data-[side=inline-end]:-left-1 data-[side=inline-end]:-translate-y-1/2 data-[side=inline-start]:top-1/2! data-[side=inline-start]:-right-1 data-[side=inline-start]:-translate-y-1/2 data-[side=left]:top-1/2! data-[side=left]:-right-1 data-[side=left]:-translate-y-1/2 data-[side=right]:top-1/2! data-[side=right]:-left-1 data-[side=right]:-translate-y-1/2 data-[side=top]:-bottom-2.5" })
-    )
-  ));
+      className: "isolate z-50",
+      children: /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+        import_tooltip.Tooltip.Popup,
+        {
+          "data-slot": "tooltip-content",
+          className: cn(
+            "z-50 inline-flex w-fit max-w-xs origin-(--transform-origin) items-center gap-1.5 rounded-md bg-foreground px-3 py-1.5 text-xs text-background has-data-[slot=kbd]:pr-1.5 data-[side=bottom]:slide-in-from-top-2 data-[side=inline-end]:slide-in-from-left-2 data-[side=inline-start]:slide-in-from-right-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 **:data-[slot=kbd]:relative **:data-[slot=kbd]:isolate **:data-[slot=kbd]:z-50 **:data-[slot=kbd]:rounded-sm data-[state=delayed-open]:animate-in data-[state=delayed-open]:fade-in-0 data-[state=delayed-open]:zoom-in-95 data-open:animate-in data-open:fade-in-0 data-open:zoom-in-95 data-closed:animate-out data-closed:fade-out-0 data-closed:zoom-out-95",
+            className
+          ),
+          ...props,
+          children: [
+            children,
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(import_tooltip.Tooltip.Arrow, { className: "z-50 size-2.5 translate-y-[calc(-50%-2px)] rotate-45 rounded-[2px] bg-foreground fill-foreground data-[side=bottom]:top-1 data-[side=inline-end]:top-1/2! data-[side=inline-end]:-left-1 data-[side=inline-end]:-translate-y-1/2 data-[side=inline-start]:top-1/2! data-[side=inline-start]:-right-1 data-[side=inline-start]:-translate-y-1/2 data-[side=left]:top-1/2! data-[side=left]:-right-1 data-[side=left]:-translate-y-1/2 data-[side=right]:top-1/2! data-[side=right]:-left-1 data-[side=right]:-translate-y-1/2 data-[side=top]:-bottom-2.5" })
+          ]
+        }
+      )
+    }
+  ) });
 }
 
 // src/components/AmbientBackground.tsx
+var import_jsx_runtime12 = require("react/jsx-runtime");
 function AmbientBackground({ className }) {
-  return /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
     "div",
     {
       "aria-hidden": true,
       className: cn(
         "pointer-events-none fixed inset-0 -z-10 overflow-hidden",
         className
-      )
-    },
-    /* @__PURE__ */ React.createElement("div", { className: "sg-ambient-gradient" }),
-    /* @__PURE__ */ React.createElement("div", { className: "sg-ambient-orb sg-ambient-orb-1" }),
-    /* @__PURE__ */ React.createElement("div", { className: "sg-ambient-orb sg-ambient-orb-2" }),
-    /* @__PURE__ */ React.createElement("div", { className: "sg-ambient-orb sg-ambient-orb-3" }),
-    /* @__PURE__ */ React.createElement("div", { className: "sg-ambient-grain" })
+      ),
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "sg-ambient-gradient" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "sg-ambient-orb sg-ambient-orb-1" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "sg-ambient-orb sg-ambient-orb-2" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "sg-ambient-orb sg-ambient-orb-3" }),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)("div", { className: "sg-ambient-grain" })
+      ]
+    }
   );
 }
 
 // src/components/LoadingScreen.tsx
+var import_jsx_runtime13 = require("react/jsx-runtime");
 function LoadingScreen({ appName = "Sidgrove", className }) {
-  return /* @__PURE__ */ React.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
     "div",
     {
       className: cn(
         "fixed inset-0 flex items-center justify-center",
         className
-      )
-    },
-    /* @__PURE__ */ React.createElement("div", { className: "sg-loading-card" }, /* @__PURE__ */ React.createElement("div", { className: "sg-loading-spinner" }), /* @__PURE__ */ React.createElement("p", { className: "sg-loading-label" }, "Loading ", appName, "\u2026"))
+      ),
+      children: /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("div", { className: "sg-loading-card", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsx)("div", { className: "sg-loading-spinner" }),
+        /* @__PURE__ */ (0, import_jsx_runtime13.jsxs)("p", { className: "sg-loading-label", children: [
+          "Loading ",
+          appName,
+          "\u2026"
+        ] })
+      ] })
+    }
   );
 }
 
 // src/components/AppHeader.tsx
-var React9 = __toESM(require("react"), 1);
+var import_jsx_runtime14 = require("react/jsx-runtime");
 function AppHeader({
   logo,
   appName,
@@ -1231,26 +1259,46 @@ function AppHeader({
   className
 }) {
   const initial = (user?.name || user?.email || "?")[0]?.toUpperCase();
-  return /* @__PURE__ */ React9.createElement(
+  return /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
     "header",
     {
       className: cn(
         "sg-app-header flex items-center justify-between gap-4 px-6 py-4",
         className
-      )
-    },
-    /* @__PURE__ */ React9.createElement("div", { className: "flex items-center gap-3" }, logo, appName && /* @__PURE__ */ React9.createElement("span", { className: "sg-app-header-name" }, appName)),
-    /* @__PURE__ */ React9.createElement("div", { className: "flex items-center gap-3" }, actions, user && onSignOut && /* @__PURE__ */ React9.createElement(DropdownMenu, null, /* @__PURE__ */ React9.createElement(DropdownMenuTrigger, { className: "sg-app-header-avatar" }, user.image ? (
-      // eslint-disable-next-line @next/next/no-img-element
-      /* @__PURE__ */ React9.createElement("img", { src: user.image, alt: "", className: "h-full w-full rounded-full object-cover" })
-    ) : /* @__PURE__ */ React9.createElement("span", null, initial)), /* @__PURE__ */ React9.createElement(DropdownMenuContent, { align: "end" }, user.name && /* @__PURE__ */ React9.createElement("div", { className: "px-2 py-1 text-sm font-medium" }, user.name), user.email && /* @__PURE__ */ React9.createElement("div", { className: "px-2 pb-2 text-xs text-muted-foreground" }, user.email), /* @__PURE__ */ React9.createElement(DropdownMenuItem, { onClick: onSignOut }, "Sign out"))))
+      ),
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "flex items-center gap-3", children: [
+          logo,
+          appName && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { className: "sg-app-header-name", children: appName })
+        ] }),
+        /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)("div", { className: "flex items-center gap-3", children: [
+          actions,
+          user && onSignOut && /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(DropdownMenu, { children: [
+            /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(DropdownMenuTrigger, { className: "sg-app-header-avatar", children: user.image ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("img", { src: user.image, alt: "", className: "h-full w-full rounded-full object-cover" })
+            ) : /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("span", { children: initial }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(DropdownMenuContent, { align: "end", children: [
+              user.name && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "px-2 py-1 text-sm font-medium", children: user.name }),
+              user.email && /* @__PURE__ */ (0, import_jsx_runtime14.jsx)("div", { className: "px-2 pb-2 text-xs text-muted-foreground", children: user.email }),
+              /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(DropdownMenuItem, { onClick: onSignOut, children: "Sign out" })
+            ] })
+          ] })
+        ] })
+      ]
+    }
   );
 }
 
 // src/components/LoginShell.tsx
-var React10 = __toESM(require("react"), 1);
+var import_jsx_runtime15 = require("react/jsx-runtime");
 function LoginShell({ appName, tagline, logo, children, className }) {
-  return /* @__PURE__ */ React10.createElement("main", { className: cn("sg-login-main", className) }, /* @__PURE__ */ React10.createElement("div", { className: "sg-login-card sg-login-spinning-border" }, /* @__PURE__ */ React10.createElement("div", { className: "sg-login-card-inner" }, logo && /* @__PURE__ */ React10.createElement("div", { className: "mb-6 flex justify-center" }, logo), /* @__PURE__ */ React10.createElement("h1", { className: "sg-login-title" }, appName), tagline && /* @__PURE__ */ React10.createElement("p", { className: "sg-login-tagline" }, tagline), /* @__PURE__ */ React10.createElement("div", { className: "mt-8 flex flex-col gap-3" }, children))));
+  return /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("main", { className: cn("sg-login-main", className), children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "sg-login-card sg-login-spinning-border", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "sg-login-card-inner", children: [
+    logo && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "mb-6 flex justify-center", children: logo }),
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("h1", { className: "sg-login-title", children: appName }),
+    tagline && /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { className: "sg-login-tagline", children: tagline }),
+    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "mt-8 flex flex-col gap-3", children })
+  ] }) }) });
 }
 
 // src/tokens/index.ts
