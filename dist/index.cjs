@@ -35,6 +35,7 @@ __export(index_exports, {
   CardFooter: () => CardFooter,
   CardHeader: () => CardHeader,
   CardTitle: () => CardTitle,
+  DataTable: () => DataTable,
   Dialog: () => Dialog,
   DialogClose: () => DialogClose,
   DialogContent: () => DialogContent,
@@ -60,9 +61,16 @@ __export(index_exports, {
   DropdownMenuSubContent: () => DropdownMenuSubContent,
   DropdownMenuSubTrigger: () => DropdownMenuSubTrigger,
   DropdownMenuTrigger: () => DropdownMenuTrigger,
+  EmptyState: () => EmptyState,
   Input: () => Input,
+  KpiTile: () => KpiTile,
   LoadingScreen: () => LoadingScreen,
+  LoadingState: () => LoadingState,
   LoginShell: () => LoginShell,
+  PageHeader: () => PageHeader,
+  PageShell: () => PageShell,
+  Section: () => Section,
+  SectionHeader: () => SectionHeader,
   Select: () => Select,
   SelectContent: () => SelectContent,
   SelectGroup: () => SelectGroup,
@@ -74,6 +82,7 @@ __export(index_exports, {
   SelectTrigger: () => SelectTrigger,
   SelectValue: () => SelectValue,
   Separator: () => Separator,
+  SurfaceCard: () => SurfaceCard,
   T: () => T,
   Table: () => Table,
   TableBody: () => TableBody,
@@ -87,6 +96,7 @@ __export(index_exports, {
   TabsContent: () => TabsContent,
   TabsList: () => TabsList,
   TabsTrigger: () => TabsTrigger,
+  Toolbar: () => Toolbar,
   Tooltip: () => Tooltip,
   TooltipContent: () => TooltipContent,
   TooltipProvider: () => TooltipProvider,
@@ -1352,6 +1362,311 @@ var cssVars = {
   radius: "var(--sg-radius)",
   shadowGlass: "var(--sg-shadow-glass)"
 };
+
+// src/components/layout/PageShell.tsx
+var import_jsx_runtime16 = require("react/jsx-runtime");
+var widthMap = {
+  "4xl": "max-w-4xl",
+  "5xl": "max-w-5xl",
+  "6xl": "max-w-6xl",
+  "7xl": "max-w-7xl",
+  full: "max-w-none"
+};
+var densityMap = {
+  compact: "space-y-8",
+  comfortable: "space-y-12",
+  spacious: "space-y-16"
+};
+function PageShell({
+  width = "6xl",
+  density = "comfortable",
+  className,
+  children,
+  ...rest
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
+    "main",
+    {
+      className: cn(
+        "mx-auto w-full px-6 py-12 md:px-8",
+        widthMap[width],
+        densityMap[density],
+        className
+      ),
+      ...rest,
+      children
+    }
+  );
+}
+
+// src/components/layout/PageHeader.tsx
+var import_jsx_runtime17 = require("react/jsx-runtime");
+function PageHeaderImpl({
+  eyebrow,
+  title,
+  description,
+  actions,
+  variant = "compact",
+  className
+}) {
+  const isHero = variant === "hero";
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)(
+    "header",
+    {
+      className: cn(
+        "flex flex-wrap items-start justify-between gap-6",
+        className
+      ),
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime17.jsxs)("div", { className: "space-y-2 max-w-3xl", children: [
+          eyebrow && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-[0.7rem] uppercase tracking-[0.2em] text-[var(--color-muted)]", children: eyebrow }),
+          /* @__PURE__ */ (0, import_jsx_runtime17.jsx)(
+            "h1",
+            {
+              className: cn(
+                "text-[var(--color-ink)] leading-tight",
+                isHero ? "text-[2.25rem] font-semibold tracking-tight" : "text-2xl font-semibold"
+              ),
+              children: title
+            }
+          ),
+          description && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("p", { className: "text-sm text-[var(--color-muted)]", children: description })
+        ] }),
+        actions && /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("div", { className: "flex items-center gap-2", children: actions })
+      ]
+    }
+  );
+}
+function Accent({ children }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime17.jsx)("span", { className: "font-serif italic font-normal text-[1.1em] leading-[0.95]", children });
+}
+var PageHeader = Object.assign(PageHeaderImpl, { Accent });
+
+// src/components/layout/Section.tsx
+var import_jsx_runtime18 = require("react/jsx-runtime");
+function SectionHeader({
+  eyebrow,
+  title,
+  description,
+  actions,
+  className
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: cn("flex items-end justify-between gap-4", className), children: [
+    /* @__PURE__ */ (0, import_jsx_runtime18.jsxs)("div", { className: "space-y-1", children: [
+      eyebrow && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-[0.7rem] uppercase tracking-[0.2em] text-[var(--color-muted)]", children: eyebrow }),
+      /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("h2", { className: "text-lg font-semibold text-[var(--color-ink)]", children: title }),
+      description && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("p", { className: "text-sm text-[var(--color-muted)]", children: description })
+    ] }),
+    actions && /* @__PURE__ */ (0, import_jsx_runtime18.jsx)("div", { className: "flex items-center gap-2", children: actions })
+  ] });
+}
+function Section({
+  density = "comfortable",
+  className,
+  children,
+  ...rest
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime18.jsx)(
+    "section",
+    {
+      className: cn(
+        density === "compact" ? "space-y-3" : "space-y-5",
+        className
+      ),
+      ...rest,
+      children
+    }
+  );
+}
+
+// src/components/layout/SurfaceCard.tsx
+var import_jsx_runtime19 = require("react/jsx-runtime");
+var densityPad = {
+  compact: "p-4",
+  comfortable: "p-6",
+  hero: "p-8"
+};
+var densityPrimary = {
+  compact: "text-xl font-semibold",
+  comfortable: "text-2xl font-semibold",
+  hero: "font-serif text-4xl font-normal leading-tight"
+};
+function SurfaceCard({
+  density = "comfortable",
+  icon,
+  label,
+  primary,
+  secondary,
+  action,
+  className,
+  children,
+  ...rest
+}) {
+  const structured = label || primary || secondary || icon || action;
+  return /* @__PURE__ */ (0, import_jsx_runtime19.jsx)(
+    "div",
+    {
+      className: cn(
+        "rounded-2xl bg-white/80 backdrop-blur-sm",
+        "border border-[var(--color-line)] shadow-sm",
+        densityPad[density],
+        className
+      ),
+      ...rest,
+      children: structured ? /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "flex items-start justify-between gap-4", children: [
+        /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "flex items-start gap-3 min-w-0", children: [
+          icon && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className: "shrink-0 size-10 rounded-lg bg-[var(--color-bg-subtle)] grid place-items-center text-[var(--color-muted)]", children: icon }),
+          /* @__PURE__ */ (0, import_jsx_runtime19.jsxs)("div", { className: "space-y-1 min-w-0", children: [
+            label && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("p", { className: "text-[0.65rem] uppercase tracking-[0.2em] text-[var(--color-muted)]", children: label }),
+            primary && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className: cn("text-[var(--color-ink)]", densityPrimary[density]), children: primary }),
+            secondary && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("p", { className: "text-sm text-[var(--color-muted)]", children: secondary })
+          ] })
+        ] }),
+        action && /* @__PURE__ */ (0, import_jsx_runtime19.jsx)("div", { className: "shrink-0", children: action })
+      ] }) : children
+    }
+  );
+}
+
+// src/components/layout/KpiTile.tsx
+var import_jsx_runtime20 = require("react/jsx-runtime");
+function KpiTile({
+  label,
+  value,
+  delta,
+  sublabel,
+  className,
+  ...rest
+}) {
+  return /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)(
+    "div",
+    {
+      className: cn(
+        "rounded-xl bg-white/80 backdrop-blur-sm border border-[var(--color-line)] p-4 space-y-1",
+        className
+      ),
+      ...rest,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("p", { className: "text-[0.65rem] uppercase tracking-[0.2em] text-[var(--color-muted)]", children: label }),
+        /* @__PURE__ */ (0, import_jsx_runtime20.jsxs)("div", { className: "flex items-baseline gap-2", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("span", { className: "text-2xl font-semibold text-[var(--color-ink)]", children: value }),
+          delta
+        ] }),
+        sublabel && /* @__PURE__ */ (0, import_jsx_runtime20.jsx)("p", { className: "text-xs text-[var(--color-muted)]", children: sublabel })
+      ]
+    }
+  );
+}
+
+// src/components/layout/DataTable.tsx
+var import_jsx_runtime21 = require("react/jsx-runtime");
+function DataTable({
+  data,
+  columns,
+  rowKey,
+  stickyHeader = false,
+  emptyState,
+  className
+}) {
+  const alignClass = (a) => a === "right" ? "text-right" : a === "center" ? "text-center" : "text-left";
+  if (data.length === 0 && emptyState) return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(import_jsx_runtime21.Fragment, { children: emptyState });
+  return /* @__PURE__ */ (0, import_jsx_runtime21.jsx)("div", { className: cn("rounded-xl border border-[var(--color-line)] overflow-hidden", className), children: /* @__PURE__ */ (0, import_jsx_runtime21.jsxs)(Table, { children: [
+    /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+      TableHeader,
+      {
+        className: cn(
+          stickyHeader && "sticky top-0 z-10 bg-gradient-to-b from-[var(--color-bg)] to-[var(--color-bg-subtle)] backdrop-blur"
+        ),
+        children: /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(TableRow, { children: columns.map((col) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+          TableHead,
+          {
+            className: cn(
+              "text-[0.7rem] uppercase tracking-[0.15em] text-[var(--color-muted)]",
+              alignClass(col.align),
+              col.widthClass
+            ),
+            children: col.header
+          },
+          col.key
+        )) })
+      }
+    ),
+    /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(TableBody, { children: data.map((row, i) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(TableRow, { children: columns.map((col) => /* @__PURE__ */ (0, import_jsx_runtime21.jsx)(
+      TableCell,
+      {
+        className: cn(alignClass(col.align), col.widthClass),
+        children: col.cell(row, i)
+      },
+      col.key
+    )) }, rowKey ? rowKey(row, i) : i)) })
+  ] }) });
+}
+
+// src/components/layout/EmptyState.tsx
+var import_jsx_runtime22 = require("react/jsx-runtime");
+function EmptyState({ icon, title, description, action, className }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime22.jsxs)(
+    "div",
+    {
+      className: cn(
+        "rounded-xl border border-dashed border-[var(--color-line)] p-12",
+        "flex flex-col items-center gap-3 text-center",
+        className
+      ),
+      children: [
+        icon && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "size-12 rounded-full bg-[var(--color-bg-subtle)] grid place-items-center text-[var(--color-muted)]", children: icon }),
+        /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("h3", { className: "text-base font-semibold text-[var(--color-ink)]", children: title }),
+        description && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("p", { className: "text-sm text-[var(--color-muted)] max-w-sm", children: description }),
+        action && /* @__PURE__ */ (0, import_jsx_runtime22.jsx)("div", { className: "pt-2", children: action })
+      ]
+    }
+  );
+}
+
+// src/components/layout/LoadingState.tsx
+var import_jsx_runtime23 = require("react/jsx-runtime");
+function LoadingState({ label = "Loading\u2026", className }) {
+  return /* @__PURE__ */ (0, import_jsx_runtime23.jsxs)(
+    "div",
+    {
+      className: cn(
+        "flex items-center justify-center gap-3 py-12 text-sm text-[var(--color-muted)]",
+        className
+      ),
+      role: "status",
+      "aria-live": "polite",
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("span", { className: "size-4 rounded-full border-2 border-[var(--color-line)] border-t-[var(--color-brand-strong)] animate-spin" }),
+        /* @__PURE__ */ (0, import_jsx_runtime23.jsx)("span", { children: label })
+      ]
+    }
+  );
+}
+
+// src/components/layout/Toolbar.tsx
+var import_jsx_runtime24 = require("react/jsx-runtime");
+function Toolbar({
+  leading,
+  trailing,
+  density = "comfortable",
+  className,
+  children,
+  ...rest
+}) {
+  const padding = density === "compact" ? "px-3 py-2" : "px-4 py-3";
+  const base = cn(
+    "rounded-xl bg-white/70 backdrop-blur-sm border border-[var(--color-line)]",
+    padding,
+    className
+  );
+  if (children) {
+    return /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: cn("flex items-center gap-3", base), ...rest, children });
+  }
+  return /* @__PURE__ */ (0, import_jsx_runtime24.jsxs)("div", { className: cn("flex items-center justify-between gap-3", base), ...rest, children: [
+    /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "flex items-center gap-2 min-w-0 flex-1", children: leading }),
+    trailing && /* @__PURE__ */ (0, import_jsx_runtime24.jsx)("div", { className: "flex items-center gap-2 shrink-0", children: trailing })
+  ] });
+}
 // Annotate the CommonJS export names for ESM import in node:
 0 && (module.exports = {
   Alert,
@@ -1369,6 +1684,7 @@ var cssVars = {
   CardFooter,
   CardHeader,
   CardTitle,
+  DataTable,
   Dialog,
   DialogClose,
   DialogContent,
@@ -1394,9 +1710,16 @@ var cssVars = {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
+  EmptyState,
   Input,
+  KpiTile,
   LoadingScreen,
+  LoadingState,
   LoginShell,
+  PageHeader,
+  PageShell,
+  Section,
+  SectionHeader,
   Select,
   SelectContent,
   SelectGroup,
@@ -1408,6 +1731,7 @@ var cssVars = {
   SelectTrigger,
   SelectValue,
   Separator,
+  SurfaceCard,
   T,
   Table,
   TableBody,
@@ -1421,6 +1745,7 @@ var cssVars = {
   TabsContent,
   TabsList,
   TabsTrigger,
+  Toolbar,
   Tooltip,
   TooltipContent,
   TooltipProvider,

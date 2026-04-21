@@ -1251,6 +1251,311 @@ var cssVars = {
   radius: "var(--sg-radius)",
   shadowGlass: "var(--sg-shadow-glass)"
 };
+
+// src/components/layout/PageShell.tsx
+import { jsx as jsx16 } from "react/jsx-runtime";
+var widthMap = {
+  "4xl": "max-w-4xl",
+  "5xl": "max-w-5xl",
+  "6xl": "max-w-6xl",
+  "7xl": "max-w-7xl",
+  full: "max-w-none"
+};
+var densityMap = {
+  compact: "space-y-8",
+  comfortable: "space-y-12",
+  spacious: "space-y-16"
+};
+function PageShell({
+  width = "6xl",
+  density = "comfortable",
+  className,
+  children,
+  ...rest
+}) {
+  return /* @__PURE__ */ jsx16(
+    "main",
+    {
+      className: cn(
+        "mx-auto w-full px-6 py-12 md:px-8",
+        widthMap[width],
+        densityMap[density],
+        className
+      ),
+      ...rest,
+      children
+    }
+  );
+}
+
+// src/components/layout/PageHeader.tsx
+import { jsx as jsx17, jsxs as jsxs9 } from "react/jsx-runtime";
+function PageHeaderImpl({
+  eyebrow,
+  title,
+  description,
+  actions,
+  variant = "compact",
+  className
+}) {
+  const isHero = variant === "hero";
+  return /* @__PURE__ */ jsxs9(
+    "header",
+    {
+      className: cn(
+        "flex flex-wrap items-start justify-between gap-6",
+        className
+      ),
+      children: [
+        /* @__PURE__ */ jsxs9("div", { className: "space-y-2 max-w-3xl", children: [
+          eyebrow && /* @__PURE__ */ jsx17("p", { className: "text-[0.7rem] uppercase tracking-[0.2em] text-[var(--color-muted)]", children: eyebrow }),
+          /* @__PURE__ */ jsx17(
+            "h1",
+            {
+              className: cn(
+                "text-[var(--color-ink)] leading-tight",
+                isHero ? "text-[2.25rem] font-semibold tracking-tight" : "text-2xl font-semibold"
+              ),
+              children: title
+            }
+          ),
+          description && /* @__PURE__ */ jsx17("p", { className: "text-sm text-[var(--color-muted)]", children: description })
+        ] }),
+        actions && /* @__PURE__ */ jsx17("div", { className: "flex items-center gap-2", children: actions })
+      ]
+    }
+  );
+}
+function Accent({ children }) {
+  return /* @__PURE__ */ jsx17("span", { className: "font-serif italic font-normal text-[1.1em] leading-[0.95]", children });
+}
+var PageHeader = Object.assign(PageHeaderImpl, { Accent });
+
+// src/components/layout/Section.tsx
+import { jsx as jsx18, jsxs as jsxs10 } from "react/jsx-runtime";
+function SectionHeader({
+  eyebrow,
+  title,
+  description,
+  actions,
+  className
+}) {
+  return /* @__PURE__ */ jsxs10("div", { className: cn("flex items-end justify-between gap-4", className), children: [
+    /* @__PURE__ */ jsxs10("div", { className: "space-y-1", children: [
+      eyebrow && /* @__PURE__ */ jsx18("p", { className: "text-[0.7rem] uppercase tracking-[0.2em] text-[var(--color-muted)]", children: eyebrow }),
+      /* @__PURE__ */ jsx18("h2", { className: "text-lg font-semibold text-[var(--color-ink)]", children: title }),
+      description && /* @__PURE__ */ jsx18("p", { className: "text-sm text-[var(--color-muted)]", children: description })
+    ] }),
+    actions && /* @__PURE__ */ jsx18("div", { className: "flex items-center gap-2", children: actions })
+  ] });
+}
+function Section({
+  density = "comfortable",
+  className,
+  children,
+  ...rest
+}) {
+  return /* @__PURE__ */ jsx18(
+    "section",
+    {
+      className: cn(
+        density === "compact" ? "space-y-3" : "space-y-5",
+        className
+      ),
+      ...rest,
+      children
+    }
+  );
+}
+
+// src/components/layout/SurfaceCard.tsx
+import { jsx as jsx19, jsxs as jsxs11 } from "react/jsx-runtime";
+var densityPad = {
+  compact: "p-4",
+  comfortable: "p-6",
+  hero: "p-8"
+};
+var densityPrimary = {
+  compact: "text-xl font-semibold",
+  comfortable: "text-2xl font-semibold",
+  hero: "font-serif text-4xl font-normal leading-tight"
+};
+function SurfaceCard({
+  density = "comfortable",
+  icon,
+  label,
+  primary,
+  secondary,
+  action,
+  className,
+  children,
+  ...rest
+}) {
+  const structured = label || primary || secondary || icon || action;
+  return /* @__PURE__ */ jsx19(
+    "div",
+    {
+      className: cn(
+        "rounded-2xl bg-white/80 backdrop-blur-sm",
+        "border border-[var(--color-line)] shadow-sm",
+        densityPad[density],
+        className
+      ),
+      ...rest,
+      children: structured ? /* @__PURE__ */ jsxs11("div", { className: "flex items-start justify-between gap-4", children: [
+        /* @__PURE__ */ jsxs11("div", { className: "flex items-start gap-3 min-w-0", children: [
+          icon && /* @__PURE__ */ jsx19("div", { className: "shrink-0 size-10 rounded-lg bg-[var(--color-bg-subtle)] grid place-items-center text-[var(--color-muted)]", children: icon }),
+          /* @__PURE__ */ jsxs11("div", { className: "space-y-1 min-w-0", children: [
+            label && /* @__PURE__ */ jsx19("p", { className: "text-[0.65rem] uppercase tracking-[0.2em] text-[var(--color-muted)]", children: label }),
+            primary && /* @__PURE__ */ jsx19("div", { className: cn("text-[var(--color-ink)]", densityPrimary[density]), children: primary }),
+            secondary && /* @__PURE__ */ jsx19("p", { className: "text-sm text-[var(--color-muted)]", children: secondary })
+          ] })
+        ] }),
+        action && /* @__PURE__ */ jsx19("div", { className: "shrink-0", children: action })
+      ] }) : children
+    }
+  );
+}
+
+// src/components/layout/KpiTile.tsx
+import { jsx as jsx20, jsxs as jsxs12 } from "react/jsx-runtime";
+function KpiTile({
+  label,
+  value,
+  delta,
+  sublabel,
+  className,
+  ...rest
+}) {
+  return /* @__PURE__ */ jsxs12(
+    "div",
+    {
+      className: cn(
+        "rounded-xl bg-white/80 backdrop-blur-sm border border-[var(--color-line)] p-4 space-y-1",
+        className
+      ),
+      ...rest,
+      children: [
+        /* @__PURE__ */ jsx20("p", { className: "text-[0.65rem] uppercase tracking-[0.2em] text-[var(--color-muted)]", children: label }),
+        /* @__PURE__ */ jsxs12("div", { className: "flex items-baseline gap-2", children: [
+          /* @__PURE__ */ jsx20("span", { className: "text-2xl font-semibold text-[var(--color-ink)]", children: value }),
+          delta
+        ] }),
+        sublabel && /* @__PURE__ */ jsx20("p", { className: "text-xs text-[var(--color-muted)]", children: sublabel })
+      ]
+    }
+  );
+}
+
+// src/components/layout/DataTable.tsx
+import { Fragment, jsx as jsx21, jsxs as jsxs13 } from "react/jsx-runtime";
+function DataTable({
+  data,
+  columns,
+  rowKey,
+  stickyHeader = false,
+  emptyState,
+  className
+}) {
+  const alignClass = (a) => a === "right" ? "text-right" : a === "center" ? "text-center" : "text-left";
+  if (data.length === 0 && emptyState) return /* @__PURE__ */ jsx21(Fragment, { children: emptyState });
+  return /* @__PURE__ */ jsx21("div", { className: cn("rounded-xl border border-[var(--color-line)] overflow-hidden", className), children: /* @__PURE__ */ jsxs13(Table, { children: [
+    /* @__PURE__ */ jsx21(
+      TableHeader,
+      {
+        className: cn(
+          stickyHeader && "sticky top-0 z-10 bg-gradient-to-b from-[var(--color-bg)] to-[var(--color-bg-subtle)] backdrop-blur"
+        ),
+        children: /* @__PURE__ */ jsx21(TableRow, { children: columns.map((col) => /* @__PURE__ */ jsx21(
+          TableHead,
+          {
+            className: cn(
+              "text-[0.7rem] uppercase tracking-[0.15em] text-[var(--color-muted)]",
+              alignClass(col.align),
+              col.widthClass
+            ),
+            children: col.header
+          },
+          col.key
+        )) })
+      }
+    ),
+    /* @__PURE__ */ jsx21(TableBody, { children: data.map((row, i) => /* @__PURE__ */ jsx21(TableRow, { children: columns.map((col) => /* @__PURE__ */ jsx21(
+      TableCell,
+      {
+        className: cn(alignClass(col.align), col.widthClass),
+        children: col.cell(row, i)
+      },
+      col.key
+    )) }, rowKey ? rowKey(row, i) : i)) })
+  ] }) });
+}
+
+// src/components/layout/EmptyState.tsx
+import { jsx as jsx22, jsxs as jsxs14 } from "react/jsx-runtime";
+function EmptyState({ icon, title, description, action, className }) {
+  return /* @__PURE__ */ jsxs14(
+    "div",
+    {
+      className: cn(
+        "rounded-xl border border-dashed border-[var(--color-line)] p-12",
+        "flex flex-col items-center gap-3 text-center",
+        className
+      ),
+      children: [
+        icon && /* @__PURE__ */ jsx22("div", { className: "size-12 rounded-full bg-[var(--color-bg-subtle)] grid place-items-center text-[var(--color-muted)]", children: icon }),
+        /* @__PURE__ */ jsx22("h3", { className: "text-base font-semibold text-[var(--color-ink)]", children: title }),
+        description && /* @__PURE__ */ jsx22("p", { className: "text-sm text-[var(--color-muted)] max-w-sm", children: description }),
+        action && /* @__PURE__ */ jsx22("div", { className: "pt-2", children: action })
+      ]
+    }
+  );
+}
+
+// src/components/layout/LoadingState.tsx
+import { jsx as jsx23, jsxs as jsxs15 } from "react/jsx-runtime";
+function LoadingState({ label = "Loading\u2026", className }) {
+  return /* @__PURE__ */ jsxs15(
+    "div",
+    {
+      className: cn(
+        "flex items-center justify-center gap-3 py-12 text-sm text-[var(--color-muted)]",
+        className
+      ),
+      role: "status",
+      "aria-live": "polite",
+      children: [
+        /* @__PURE__ */ jsx23("span", { className: "size-4 rounded-full border-2 border-[var(--color-line)] border-t-[var(--color-brand-strong)] animate-spin" }),
+        /* @__PURE__ */ jsx23("span", { children: label })
+      ]
+    }
+  );
+}
+
+// src/components/layout/Toolbar.tsx
+import { jsx as jsx24, jsxs as jsxs16 } from "react/jsx-runtime";
+function Toolbar({
+  leading,
+  trailing,
+  density = "comfortable",
+  className,
+  children,
+  ...rest
+}) {
+  const padding = density === "compact" ? "px-3 py-2" : "px-4 py-3";
+  const base = cn(
+    "rounded-xl bg-white/70 backdrop-blur-sm border border-[var(--color-line)]",
+    padding,
+    className
+  );
+  if (children) {
+    return /* @__PURE__ */ jsx24("div", { className: cn("flex items-center gap-3", base), ...rest, children });
+  }
+  return /* @__PURE__ */ jsxs16("div", { className: cn("flex items-center justify-between gap-3", base), ...rest, children: [
+    /* @__PURE__ */ jsx24("div", { className: "flex items-center gap-2 min-w-0 flex-1", children: leading }),
+    trailing && /* @__PURE__ */ jsx24("div", { className: "flex items-center gap-2 shrink-0", children: trailing })
+  ] });
+}
 export {
   Alert,
   AlertAction,
@@ -1267,6 +1572,7 @@ export {
   CardFooter,
   CardHeader,
   CardTitle,
+  DataTable,
   Dialog,
   DialogClose,
   DialogContent,
@@ -1292,9 +1598,16 @@ export {
   DropdownMenuSubContent,
   DropdownMenuSubTrigger,
   DropdownMenuTrigger,
+  EmptyState,
   Input,
+  KpiTile,
   LoadingScreen,
+  LoadingState,
   LoginShell,
+  PageHeader,
+  PageShell,
+  Section,
+  SectionHeader,
   Select,
   SelectContent,
   SelectGroup,
@@ -1306,6 +1619,7 @@ export {
   SelectTrigger,
   SelectValue,
   Separator,
+  SurfaceCard,
   T,
   Table,
   TableBody,
@@ -1319,6 +1633,7 @@ export {
   TabsContent,
   TabsList,
   TabsTrigger,
+  Toolbar,
   Tooltip,
   TooltipContent,
   TooltipProvider,
