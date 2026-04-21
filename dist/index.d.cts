@@ -121,18 +121,18 @@ declare function Tooltip({ ...props }: Tooltip$1.Root.Props): React.JSX.Element;
 declare function TooltipTrigger({ ...props }: Tooltip$1.Trigger.Props): React.JSX.Element;
 declare function TooltipContent({ className, side, sideOffset, align, alignOffset, children, ...props }: Tooltip$1.Popup.Props & Pick<Tooltip$1.Positioner.Props, "align" | "alignOffset" | "side" | "sideOffset">): React.JSX.Element;
 
-type Props$3 = {
+type Props$b = {
     className?: string;
 };
-declare function AmbientBackground({ className }: Props$3): React.JSX.Element;
+declare function AmbientBackground({ className }: Props$b): React.JSX.Element;
 
-type Props$2 = {
+type Props$a = {
     appName?: string;
     className?: string;
 };
-declare function LoadingScreen({ appName, className }: Props$2): React.JSX.Element;
+declare function LoadingScreen({ appName, className }: Props$a): React.JSX.Element;
 
-type Props$1 = {
+type Props$9 = {
     logo?: React.ReactNode;
     appName?: string;
     user?: {
@@ -144,16 +144,16 @@ type Props$1 = {
     actions?: React.ReactNode;
     className?: string;
 };
-declare function AppHeader({ logo, appName, user, onSignOut, actions, className, }: Props$1): React.JSX.Element;
+declare function AppHeader({ logo, appName, user, onSignOut, actions, className, }: Props$9): React.JSX.Element;
 
-type Props = {
+type Props$8 = {
     appName: string;
     tagline?: string;
     logo?: React.ReactNode;
     children: React.ReactNode;
     className?: string;
 };
-declare function LoginShell({ appName, tagline, logo, children, className }: Props): React.JSX.Element;
+declare function LoginShell({ appName, tagline, logo, children, className }: Props$8): React.JSX.Element;
 
 declare function cn(...inputs: ClassValue[]): string;
 
@@ -201,4 +201,125 @@ declare const cssVars: {
     readonly shadowGlass: "var(--sg-shadow-glass)";
 };
 
-export { Alert, AlertAction, AlertDescription, AlertTitle, AmbientBackground, AppHeader, Badge, type BrandToken, Button, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, Input, LoadingScreen, LoginShell, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectScrollDownButton, SelectScrollUpButton, SelectSeparator, SelectTrigger, SelectValue, Separator, T, Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, badgeVariants, buttonVariants, cn, cssVars, tabsListVariants };
+type Props$7 = React.HTMLAttributes<HTMLElement> & {
+    /** Max content width. Default: "6xl" (72rem). Use "full" for edge-to-edge surfaces. */
+    width?: "4xl" | "5xl" | "6xl" | "7xl" | "full";
+    /** Vertical rhythm between top-level children. Default: "comfortable". */
+    density?: "compact" | "comfortable" | "spacious";
+};
+declare function PageShell({ width, density, className, children, ...rest }: Props$7): React.JSX.Element;
+
+type Props$6 = {
+    /** Small uppercase tracker above the title (optional). */
+    eyebrow?: React.ReactNode;
+    /**
+     * Main heading. Pass `<>Month-End <PageHeader.Accent>Intelligence</PageHeader.Accent></>`
+     * for the canonical sans + italic-serif pattern. Plain strings render all-sans.
+     */
+    title: React.ReactNode;
+    /** Optional supporting copy below the title. */
+    description?: React.ReactNode;
+    /** Slot right of the title (actions, meta, avatar, etc). */
+    actions?: React.ReactNode;
+    /**
+     * "compact" for utility/settings pages.
+     * "hero" for top-of-app surfaces — smaller than a display heading, room for Accent.
+     */
+    variant?: "compact" | "hero";
+    className?: string;
+};
+declare function PageHeaderImpl({ eyebrow, title, description, actions, variant, className, }: Props$6): React.JSX.Element;
+declare function Accent({ children }: {
+    children: React.ReactNode;
+}): React.JSX.Element;
+declare const PageHeader: typeof PageHeaderImpl & {
+    Accent: typeof Accent;
+};
+
+type SectionHeaderProps = {
+    eyebrow?: React.ReactNode;
+    title: React.ReactNode;
+    description?: React.ReactNode;
+    actions?: React.ReactNode;
+    className?: string;
+};
+declare function SectionHeader({ eyebrow, title, description, actions, className, }: SectionHeaderProps): React.JSX.Element;
+type SectionProps = React.HTMLAttributes<HTMLElement> & {
+    density?: "compact" | "comfortable";
+};
+declare function Section({ density, className, children, ...rest }: SectionProps): React.JSX.Element;
+
+type Density = "compact" | "comfortable" | "hero";
+type Props$5 = React.HTMLAttributes<HTMLDivElement> & {
+    density?: Density;
+    /** Icon slot — typically a small Lucide icon, rendered inside a chip. */
+    icon?: React.ReactNode;
+    /** Small uppercase label above the primary value. */
+    label?: React.ReactNode;
+    /** The main content — number, text, or arbitrary node. */
+    primary?: React.ReactNode;
+    /** Supporting copy below primary. */
+    secondary?: React.ReactNode;
+    /** Action slot (top-right). */
+    action?: React.ReactNode;
+};
+declare function SurfaceCard({ density, icon, label, primary, secondary, action, className, children, ...rest }: Props$5): React.JSX.Element;
+
+type Props$4 = React.HTMLAttributes<HTMLDivElement> & {
+    label: React.ReactNode;
+    value: React.ReactNode;
+    /** Optional delta/trend indicator (ReactNode so caller controls colour + icon). */
+    delta?: React.ReactNode;
+    /** Optional supporting line under the value. */
+    sublabel?: React.ReactNode;
+};
+declare function KpiTile({ label, value, delta, sublabel, className, ...rest }: Props$4): React.JSX.Element;
+
+type Column<T> = {
+    key: string;
+    header: React.ReactNode;
+    /** Cell renderer. Gets row + row-index. */
+    cell: (row: T, index: number) => React.ReactNode;
+    /** Text align for both header and cell. Default: "left". */
+    align?: "left" | "right" | "center";
+    /** Tailwind width class (e.g. "w-24"). */
+    widthClass?: string;
+};
+type Props$3<T> = {
+    data: T[];
+    columns: Column<T>[];
+    /** React key getter — defaults to index. */
+    rowKey?: (row: T, index: number) => React.Key;
+    /** Show sticky header with gradient. Default: false. */
+    stickyHeader?: boolean;
+    /** Node rendered when data is empty. */
+    emptyState?: React.ReactNode;
+    className?: string;
+};
+declare function DataTable<T>({ data, columns, rowKey, stickyHeader, emptyState, className, }: Props$3<T>): React.JSX.Element;
+
+type Props$2 = {
+    icon?: React.ReactNode;
+    title: React.ReactNode;
+    description?: React.ReactNode;
+    action?: React.ReactNode;
+    className?: string;
+};
+declare function EmptyState({ icon, title, description, action, className }: Props$2): React.JSX.Element;
+
+type Props$1 = {
+    label?: React.ReactNode;
+    className?: string;
+};
+declare function LoadingState({ label, className }: Props$1): React.JSX.Element;
+
+type Props = React.HTMLAttributes<HTMLDivElement> & {
+    /** Left-side content — typically search/filter slot. */
+    leading?: React.ReactNode;
+    /** Right-side content — typically actions. */
+    trailing?: React.ReactNode;
+    density?: "compact" | "comfortable";
+};
+declare function Toolbar({ leading, trailing, density, className, children, ...rest }: Props): React.JSX.Element;
+
+export { Alert, AlertAction, AlertDescription, AlertTitle, AmbientBackground, AppHeader, Badge, type BrandToken, Button, Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle, DataTable, Dialog, DialogClose, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogOverlay, DialogPortal, DialogTitle, DialogTrigger, DropdownMenu, DropdownMenuCheckboxItem, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuPortal, DropdownMenuRadioGroup, DropdownMenuRadioItem, DropdownMenuSeparator, DropdownMenuShortcut, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger, DropdownMenuTrigger, EmptyState, Input, KpiTile, LoadingScreen, LoadingState, LoginShell, PageHeader, PageShell, Section, SectionHeader, Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectScrollDownButton, SelectScrollUpButton, SelectSeparator, SelectTrigger, SelectValue, Separator, SurfaceCard, T, Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow, Tabs, TabsContent, TabsList, TabsTrigger, Toolbar, Tooltip, TooltipContent, TooltipProvider, TooltipTrigger, badgeVariants, buttonVariants, cn, cssVars, tabsListVariants };
