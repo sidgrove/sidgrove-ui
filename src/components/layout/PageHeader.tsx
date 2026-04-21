@@ -64,7 +64,13 @@ function PageHeaderImpl({
 }
 
 function Accent({ children }: { children: React.ReactNode }) {
-  return <span className="font-serif italic font-normal">{children}</span>
+  // Slightly larger than parent so serif visual weight matches sans-bold.
+  // Serif x-heights read smaller at nominal size — bump ~10% to balance.
+  return (
+    <span className="font-serif italic font-normal text-[1.1em] leading-[0.95]">
+      {children}
+    </span>
+  )
 }
 
 export const PageHeader = Object.assign(PageHeaderImpl, { Accent })
