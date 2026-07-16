@@ -48,7 +48,7 @@ function PageHeaderImpl({
           className={cn(
             "text-[var(--color-ink)] leading-tight",
             isHero
-              ? "text-[2.25rem] font-semibold tracking-tight"
+              ? "text-[2.25rem] font-semibold tracking-[-0.032em]"
               : "text-2xl font-semibold"
           )}
         >
@@ -64,10 +64,15 @@ function PageHeaderImpl({
 }
 
 function Accent({ children }: { children: React.ReactNode }) {
-  // Slightly larger than parent so serif visual weight matches sans-bold.
-  // Serif x-heights read smaller at nominal size — bump ~10% to balance.
+  // 0.96em = cap-height match, measured against the live fonts
+  // (2026-07-16): Perfectly Nineties italic runs BIGGER than DM Sans
+  // bold at the same px (caps 73 vs 70, ascenders 78 vs 70), so the
+  // old +10% bump oversized every accent. Pairs with the -0.032em
+  // sans tracking on the hero title (Dave-picked pairing "E").
+  // No leading override - a sub-1 line-height clipped the serif's
+  // deep descenders (its content area is ~1.36em).
   return (
-    <span className="font-serif italic font-normal text-[1.1em] leading-[0.95]">
+    <span className="font-serif italic font-normal text-[0.96em]">
       {children}
     </span>
   )
