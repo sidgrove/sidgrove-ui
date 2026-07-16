@@ -1314,7 +1314,7 @@ function PageHeaderImpl({
             {
               className: cn(
                 "text-[var(--color-ink)] leading-tight",
-                isHero ? "text-[2.25rem] font-semibold tracking-tight" : "text-2xl font-semibold"
+                isHero ? "text-[2.25rem] font-semibold tracking-[-0.032em]" : "text-2xl font-semibold"
               ),
               children: title
             }
@@ -1327,7 +1327,7 @@ function PageHeaderImpl({
   );
 }
 function Accent({ children }) {
-  return /* @__PURE__ */ jsx17("span", { className: "font-serif italic font-normal text-[1.1em] leading-[0.95]", children });
+  return /* @__PURE__ */ jsx17("span", { className: "font-serif italic font-normal text-[0.96em]", children });
 }
 var PageHeader = Object.assign(PageHeaderImpl, { Accent });
 
